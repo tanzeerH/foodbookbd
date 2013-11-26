@@ -1,21 +1,32 @@
 package com.example.foodbookbd;
 
+import java.util.ArrayList;
+
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.ActionBar.TabListener;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.MenuItem;
+
 
 import android.R.drawable;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.SpannableString;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends SherlockFragmentActivity {
@@ -27,7 +38,8 @@ public class MainActivity extends SherlockFragmentActivity {
 	FragmentSearch fragSearch;
 	FragmentOffer fragOffer;
 	FragmentRateIt fragRateIt;
-
+	public static ArrayList<RestaurentInfo> restInfoList = new ArrayList<RestaurentInfo>();
+	public static DataBaseAdapter databaseAdapter;
 	TextView tabText;
 	ImageView tabImage;
 
@@ -36,8 +48,9 @@ public class MainActivity extends SherlockFragmentActivity {
 		super.onCreate(savedInstanceState);
 		// setContentView(R.layout.activity_main);
 
+		databaseAdapter=new DataBaseAdapter(getApplicationContext());
 		actionbar = getSupportActionBar();
-
+		actionbar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		fragRestaurent = new FragmentRestaurent();
 		fragFavourite = new FragmentFavourite();
 		fragSearch = new FragmentSearch();
@@ -46,15 +59,15 @@ public class MainActivity extends SherlockFragmentActivity {
 
 
 		tabRestaurents = actionbar.newTab();
-		View viewTabRestaurent=getLayoutInflater().inflate(R.layout.tab_view, null, false);
+		/*View viewTabRestaurent=getLayoutInflater().inflate(R.layout.tab_view, null, false);
 		tabText=(TextView)viewTabRestaurent.findViewById(R.id.tab_text);
 		tabImage=(ImageView)viewTabRestaurent.findViewById(R.id.tab_image);
 		Drawable d = getResources().getDrawable(R.drawable.ic_launcher);
 		tabImage.setImageDrawable(d);
 		tabText.setText("Restaurent");
-		tabRestaurents.setCustomView(viewTabRestaurent);
-		//tabRestaurents.setText("Restaurents");
-		//tabRestaurents.setIcon(null);
+		tabRestaurents.setCustomView(viewTabRestaurent);*/
+		tabRestaurents.setText("Restaurents");
+		tabRestaurents.setIcon(null);
 		
 		tabFavourite = actionbar.newTab();
 		/*View viewTabFavourite=getLayoutInflater().inflate(R.layout.tab_view, null, false);
@@ -108,9 +121,10 @@ public class MainActivity extends SherlockFragmentActivity {
 		actionbar.addTab(tabOffer);
 		actionbar.addTab(tabRate);
 		
-		actionbar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		
-		//actionbar.selectTab(tabRestaurents);
+		
+		actionbar.selectTab(tabRestaurents);
+		
 
 	}
 
@@ -150,6 +164,25 @@ public class MainActivity extends SherlockFragmentActivity {
 
 		}
 
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(com.actionbarsherlock.view.Menu menu) {
+		// TODO Auto-generated method stub
+		getSupportMenuInflater().inflate(R.menu.main, menu);
+		
+		return true;
+	}
+	
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		
+		UpdateDatabaseThread updateDatabase = new UpdateDatabaseThread();
+		updateDatabase.start();
+		Log.d("start thread", "started");
+		return true;
 	}
 
 }
