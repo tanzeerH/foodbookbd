@@ -11,6 +11,7 @@ import com.actionbarsherlock.view.MenuItem;
 
 
 import android.R.drawable;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -38,8 +39,9 @@ public class MainActivity extends SherlockFragmentActivity {
 	FragmentSearch fragSearch;
 	FragmentOffer fragOffer;
 	FragmentRateIt fragRateIt;
+	LocationManager locationManager;
 	public static ArrayList<RestaurentInfo> restInfoList = new ArrayList<RestaurentInfo>();
-	public static DataBaseAdapter databaseAdapter;
+	public static DataBaseAdapterRestaurent databaseAdapter;
 	TextView tabText;
 	ImageView tabImage;
 
@@ -48,7 +50,8 @@ public class MainActivity extends SherlockFragmentActivity {
 		super.onCreate(savedInstanceState);
 		// setContentView(R.layout.activity_main);
 
-		databaseAdapter=new DataBaseAdapter(getApplicationContext());
+		databaseAdapter=new DataBaseAdapterRestaurent(getApplicationContext());
+		
 		actionbar = getSupportActionBar();
 		actionbar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		fragRestaurent = new FragmentRestaurent();
@@ -125,7 +128,7 @@ public class MainActivity extends SherlockFragmentActivity {
 		
 		actionbar.selectTab(tabRestaurents);
 		
-
+		
 	}
 
 	class MyTabListener implements TabListener {

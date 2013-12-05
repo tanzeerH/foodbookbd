@@ -15,20 +15,19 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-public class CLVAdapter extends ArrayAdapter<RestaurentInfo> {
+public class CLVAdapterMenu extends ArrayAdapter<FoodItem> {
 
 	private Context thisContext;
 
-	public CLVAdapter(Context context, int textViewResourceId,
-			List<RestaurentInfo> items) {
+	public CLVAdapterMenu(Context context, int textViewResourceId,
+			List<FoodItem> items) {
 		super(context,textViewResourceId,items);
 		thisContext=context;
 	}
 	
 	private class ViewHolder{
 		ImageView ivCLV;
-		TextView tvName,tvAddress,tvLatitude,tvLongitude;
-		RatingBar rateBar;
+		TextView tvName,tvPrice;
 	}
 
 	@Override
@@ -42,32 +41,22 @@ public class CLVAdapter extends ArrayAdapter<RestaurentInfo> {
 			holder=new ViewHolder();
 			holder.ivCLV=(ImageView)convertView.findViewById(R.id.ivclv);
 			holder.tvName=(TextView)convertView.findViewById(R.id.name_clv);
-			holder.tvAddress=(TextView)convertView.findViewById(R.id.address_clv);
+			holder.tvPrice=(TextView)convertView.findViewById(R.id.address_clv);
 			
-			holder.tvLatitude=(TextView)convertView.findViewById(R.id.latitude_clv);
-			holder.tvLongitude=(TextView)convertView.findViewById(R.id.longitude_clv);
-			holder.rateBar=(RatingBar)convertView.findViewById(R.id.rating_clv);
 			convertView.setTag(holder);
 		} else
 			holder = (ViewHolder) convertView.getTag();
 		
-		RestaurentInfo rowItem = getItem(position);
+		FoodItem rowItem = getItem(position);
 		
 		Integer id=R.drawable.ic_launcher;
 		holder.ivCLV.setImageResource(id); 
 		//Log.d("Inside getView(): CLVAdapter",id+"");
 	
 		holder.tvName.setText(rowItem.getName());
-		holder.tvAddress.setText(rowItem.getAddress());
-		holder.tvLatitude.setText(Float.toString(rowItem.getLatitude()));
-		holder.tvLongitude.setText(Float.toString(rowItem.getLongitude()));
+		holder.tvPrice.setText(rowItem.getPrice()+"");
 		//holder.rateBar.setStepSize(rowItem.getRank());
 		//holder.rateBar.setClickable(false);
-		holder.rateBar.setNumStars(5);
-		holder.rateBar.setRating(rowItem.getRank());
-		holder.rateBar.setIsIndicator(true);
-		
-		Log.d("rate "+position, Float.toString( rowItem.getRank()));
 		
 		return convertView;
 	}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:weightSum="100" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="75" >
+
+        <include layout="@layout/clv_row" />
+    </LinearLayout>
+
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="25">
+
+        <Button
+            android:id="@+id/menu_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="100dp"
+            android:text="Menu" 
+            />
+
+        <Button
+            android:id="@+id/add_to_favourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="100dp"
+            android:text="Add to favourite" 
+            android:layout_toRightOf="@+id/menu_button"/>
+
+        <Button
+            android:id="@+id/opening_times"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opening Times" 
+            android:layout_below="@+id/menu_button"
+            />
+
+        <Button
+            android:id="@+id/review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Review" 
+            android:layout_toRightOf="@+id/opening_times"
+            android:layout_below="@+id/add_to_favourite"/>
+
+        <Button
+            android:id="@+id/gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gallery" 
+            android:layout_below="@+id/opening_times"/>
+
+        <Button
+            android:id="@+id/report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Report" 
+            android:layout_toRightOf="@+id/gallery"
+            android:layout_below="@+id/review"/>
+
+    </RelativeLayout>
+    
+
+</LinearLayout>

@@ -20,7 +20,8 @@ import android.util.Log;
 
 public class UpdateDatabaseThread extends Thread {
 
-
+	
+	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -39,6 +40,7 @@ public class UpdateDatabaseThread extends Thread {
 				HttpEntity entity = response.getEntity();
 				String jsonstr = EntityUtils.toString(entity);
 				JSONArray jsonArray;
+				long id;
 				String Name, Adress;
 				float Latitude, Longitude,rank;
 				try {
@@ -46,20 +48,24 @@ public class UpdateDatabaseThread extends Thread {
 					jsonArray = new JSONArray(jsonstr);
 					
 					MainActivity.databaseAdapter.open();
+					int rowNum=MainActivity.databaseAdapter.getCount();
+					Log.d("existing row number", rowNum+"");
 					
-					for (int i = 0; i < jsonArray.length(); i++) {
+					for (int i = rowNum; i < jsonArray.length(); i++) {
 						JSONObject jsonObject = jsonArray.getJSONObject(i);
+						id=jsonObject.getLong(DBHelperRestaurent.Id);
+						Log.d("id of" + id, id+"");
 						Name = (String) jsonObject.get("Name");
 						Adress = (String) jsonObject.get("Address");
 						Latitude = Float.valueOf((String) jsonObject.get("Latitude"));
 						Longitude = Float.valueOf((String) jsonObject.get("Longitude"));
 						rank=Float.valueOf((String)jsonObject.get("Rank"));
-						RestaurentInfo restInfo = new RestaurentInfo(Name,
+						RestaurentInfo restInfo = new RestaurentInfo(id,Name,
 								Adress, Longitude, Latitude,rank);
 
 						MainActivity.restInfoList.add(restInfo);
 						MainActivity.databaseAdapter.insert(restInfo);
-						//Log.d("new restaurent", restInfo.toString());
+						Log.d("new restaurent", restInfo.toString());
 					}
 					
 					//
