@@ -40,7 +40,7 @@ public class MainActivity extends SherlockFragmentActivity {
 	FragmentOffer fragOffer;
 	FragmentRateIt fragRateIt;
 	LocationManager locationManager;
-	public static ArrayList<RestaurentInfo> restInfoList = new ArrayList<RestaurentInfo>();
+	public static ArrayList<RestaurentInfo> restInfoList ;
 	public static DataBaseAdapterRestaurent databaseAdapter;
 	TextView tabText;
 	ImageView tabImage;
@@ -50,6 +50,7 @@ public class MainActivity extends SherlockFragmentActivity {
 		super.onCreate(savedInstanceState);
 		// setContentView(R.layout.activity_main);
 
+		restInfoList = new ArrayList<RestaurentInfo>();
 		databaseAdapter=new DataBaseAdapterRestaurent(getApplicationContext());
 		
 		actionbar = getSupportActionBar();

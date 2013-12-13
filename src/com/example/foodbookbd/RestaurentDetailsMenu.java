@@ -30,12 +30,14 @@ import com.actionbarsherlock.app.SherlockActivity;
 
 public class RestaurentDetailsMenu extends SherlockActivity {
 
+	
+	
 	ListView lvMenu;
 	ArrayList<FoodItem> menuItems;
 	CLVAdapterMenu adapter;
 	DataBaseAdapterMenu dbAdapter;
 	long idOfRestaurent;
-	//ProgressDialog prog;
+	ProgressDialog prog;
 	String[] columns = { DBHelperMenu.MenuRestId, DBHelperMenu.MenuName,
 			DBHelperMenu.MenuPrice };
 
@@ -57,6 +59,14 @@ public class RestaurentDetailsMenu extends SherlockActivity {
 		dbAdapter.open();
 		dbAdapter.createTable();
 		dbAdapter.close();
+		
+		prog = new ProgressDialog(RestaurentDetailsMenu.this);
+		prog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+		prog.setIndeterminate(false);
+ 		
+		prog.setTitle("Downloading");
+		prog.setMessage("Please wait ...");       
+ 		prog.show();
 		
 		GetDataFromRemoteDatabase getData = new GetDataFromRemoteDatabase();
 		getData.execute();
@@ -81,13 +91,7 @@ public class RestaurentDetailsMenu extends SherlockActivity {
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			
-			/*prog = new ProgressDialog(RestaurentDetailsMenu.this);
-			prog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-			prog.setIndeterminate(false);
-	 		
-			prog.setTitle("Downloading");
-			prog.setMessage("Please wait ...");       
-	 		prog.show();*/
+			
 		}
 		
 		@Override
@@ -95,7 +99,7 @@ public class RestaurentDetailsMenu extends SherlockActivity {
 
 			DefaultHttpClient client = new DefaultHttpClient();
 			HttpGet getResponse = new HttpGet(
-					"http://10.0.2.2/FoodBookBd/restaurent_menu_get.php");
+					"http://dimik.webege.com/foodbookdhaka/restaurent_menu_get.php");
 
 			Log.d("async", "Running");
 			try {

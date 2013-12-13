@@ -13,7 +13,7 @@ import com.actionbarsherlock.app.SherlockActivity;
 public class RestaurentDetails extends SherlockActivity implements
 		OnClickListener {
 
-	Button addToFavourite,menuButton;
+	Button addToFavourite,menuButton,btnOpeningTimes,btnReview,btnReport,btnGallery;
 	TextView tvName,tvAddress;
 	RatingBar ratebar;
 	RestaurentInfo thisRestaurent;
@@ -47,6 +47,15 @@ public class RestaurentDetails extends SherlockActivity implements
 		addToFavourite.setOnClickListener(this);
 		menuButton=(Button) findViewById(R.id.menu_button);
 		menuButton.setOnClickListener(this);
+		btnOpeningTimes=(Button)findViewById(R.id.opening_times);
+		btnOpeningTimes.setOnClickListener(this);
+		btnReview=(Button)findViewById(R.id.review_button);
+		btnReview.setOnClickListener(this);
+		btnReport=(Button)findViewById(R.id.report);
+		btnReport.setOnClickListener(this);
+		btnGallery=(Button)findViewById(R.id.gallery);
+		btnGallery.setOnClickListener(this);
+		
 		
 	}
 
@@ -64,7 +73,21 @@ public class RestaurentDetails extends SherlockActivity implements
 			String[] values={Boolean.toString(true)};
 			MainActivity.databaseAdapter.updateRow(thisRestaurent.id,columns,values);
 		}
+		else if(v.getId()==R.id.opening_times)
+		{
 		
+		}
+		else if(v.getId()==R.id.review_button)
+		{
+			Intent intent= new Intent(getApplicationContext(), RestaurentDetailsReview.class);
+			intent.putExtra(DBHelperRestaurent.Id, thisRestaurent.getId());
+			startActivity(intent);
+		}
+		else if(v.getId()==R.id.gallery)
+		{}
+		else if(v.getId()==R.id.report)
+		{}
+	
 	}
 
 }

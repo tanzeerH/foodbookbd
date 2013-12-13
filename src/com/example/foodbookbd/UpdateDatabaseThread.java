@@ -28,7 +28,7 @@ public class UpdateDatabaseThread extends Thread {
 
 		DefaultHttpClient client = new DefaultHttpClient();
 		HttpGet getResponse = new HttpGet(
-				"http://10.0.2.2/FoodBookBd/restaurent_info_get.php");
+				"http://dimik.webege.com/foodbookdhaka/restaurent_info_get.php");
 
 		try {
 			HttpResponse response = client.execute(getResponse);

@@ -62,4 +62,9 @@ public class DataBaseAdapterMenu {
 		close();
 	}
 
+	public SQLiteDatabase getDatabase() {
+		
+		return database;
+	}
+
 }
