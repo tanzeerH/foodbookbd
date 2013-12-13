@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000" >
+
+    <RatingBar
+        android:id="@+id/rb_get_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="false"
+        android:layout_gravity="center_horizontal"
+        android:numStars="5" 
+        android:stepSize="5"/>
+
+    <EditText
+        android:id="@+id/et_get_reviewer_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your Name" 
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:layout_weight="1"
+        android:id="@+id/et_get_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Place your review here..." 
+        android:textColor="#ffffff"
+        android:gravity="start"/>
+    
+    <Button 
+        android:id="@+id/btn_get_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit Review"
+        android:textAlignment="center"/>
+
+</LinearLayout>
