@@ -53,8 +53,8 @@ public class CLVAdapterMenu extends ArrayAdapter<FoodItem> {
 		holder.ivCLV.setImageResource(id); 
 		//Log.d("Inside getView(): CLVAdapter",id+"");
 	
-		holder.tvName.setText(rowItem.getName());
-		holder.tvPrice.setText(rowItem.getPrice()+"");
+		holder.tvName.setText("Item Name: "+rowItem.getName());
+		holder.tvPrice.setText("Price: "+rowItem.getPrice()+"");
 		//holder.rateBar.setStepSize(rowItem.getRank());
 		//holder.rateBar.setClickable(false);
 		

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+	
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+
+        <TableRow
+            android:layout_weight="1"
+            android:padding="5dip" 
+            android:gravity="center">
+
+        	<include layout="@layout/clv_row" />
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1"
+            android:padding="5dip" >
+
+            <Button
+                android:id="@+id/thin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="2"
+            android:padding="5dip" >
+
+            <Button
+                android:id="@+id/opmenu"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_launcher"
+                android:text="Menu"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/opgetdirection"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_launcher"
+                android:text="Get Direction"
+                tools:ignore="HardcodedText" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="2"
+            android:padding="5dip" >
+
+            <Button
+                android:id="@+id/addmenu"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_launcher"
+                android:text="Add Menu"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/opreviews"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_launcher"
+                android:text="Reviews"
+                tools:ignore="HardcodedText" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="2"
+            android:padding="5dip" >
+
+            <Button
+                android:id="@+id/opopeningtime"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_launcher"
+                android:text="Opening Times"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/opaddtofav"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_launcher"
+                android:text="Add to favroute"
+                tools:ignore="HardcodedText" />
+        </TableRow>
+    </TableLayout>
+
+</ScrollView>

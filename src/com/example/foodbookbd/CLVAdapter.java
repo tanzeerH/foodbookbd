@@ -1,5 +1,6 @@
 package com.example.foodbookbd;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 
@@ -58,16 +59,16 @@ public class CLVAdapter extends ArrayAdapter<RestaurentInfo> {
 		//Log.d("Inside getView(): CLVAdapter",id+"");
 	
 		holder.tvName.setText(rowItem.getName());
-		holder.tvAddress.setText(rowItem.getAddress());
-		holder.tvLatitude.setText(Float.toString(rowItem.getLatitude()));
-		holder.tvLongitude.setText(Float.toString(rowItem.getLongitude()));
+		holder.tvAddress.setText("Address: "+rowItem.getAddress());
+		holder.tvLatitude.setText("Distance: "+new DecimalFormat("##.##").format(rowItem.getDistance())+" meter");
+		holder.tvLongitude.setText("");
 		//holder.rateBar.setStepSize(rowItem.getRank());
 		//holder.rateBar.setClickable(false);
 		holder.rateBar.setNumStars(5);
-		holder.rateBar.setRating(rowItem.getRank());
+		holder.rateBar.setRating((float) rowItem.getRank());
 		holder.rateBar.setIsIndicator(true);
 		
-		Log.d("rate "+position, Float.toString( rowItem.getRank()));
+		Log.d("rate "+position, Double.toString( rowItem.getRank()));
 		
 		return convertView;
 	}

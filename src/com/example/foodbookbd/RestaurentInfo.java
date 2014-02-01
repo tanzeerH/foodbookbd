@@ -5,6 +5,7 @@ public class RestaurentInfo {
 	long id;
 	String Name;
 	String Address;
+	double distance;
 	public long getId() {
 		return id;
 	}
@@ -15,21 +16,21 @@ public class RestaurentInfo {
 	}
 
 
-	float longitude,latitude,rank;
+	double longitude,latitude,rank;
 	
 	
-	public float getRank() {
+	public double getRank() {
 		return rank;
 	}
 
 
-	public void setRank(float rank) {
+	public void setRank(double rank) {
 		this.rank = rank;
 	}
 
 
-	public RestaurentInfo(long id,String name, String address, float longitude,
-			float latitude,float rank) {
+	public RestaurentInfo(long id,String name, String address, double longitude,
+			double latitude,double rank) {
 		this.id=id;
 		Name = name;
 		Address = address;
@@ -69,25 +70,33 @@ public class RestaurentInfo {
 	}
 
 
-	public float getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
 
-	public void setLongitude(float longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 
 
-	public float getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
 
-	public void setLatitude(float latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
-	
+	public void setDistance(double dis)
+	{
+		this.distance=dis;
+	}
+	public double getDistance() {
+		
+		return this.distance;
+		
+	}
 	
 
 }

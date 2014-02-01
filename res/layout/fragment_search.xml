@@ -1,53 +1,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" 
-    >
-	
-    <TextView 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_margin="10.0dp"
-        android:text="Select Category"
-        android:layout_gravity="center_horizontal"
-        />
-    
-    <Spinner 
-        android:id="@+id/search_catagory_spinner"
+        android:text="Enter Your Choice" />
+
+    <Spinner
+        android:id="@+id/sp_options"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10.0dp" 
-        android:background="#000000"
+        android:layout_height="50.0dp"
         android:layout_gravity="center_horizontal"
-        android:popupBackground="#000000"
-        />
-	
-	<TextView 
-	    android:text="Enter Your Choice"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_margin="10.0dp"
-	    android:layout_gravity="center_horizontal"
-	    />
-    
-	<EditText 
-	    android:id="@+id/search_name_edittext"
-	    android:layout_width="match_parent"
-	    android:layout_height="50.0dp"
-	    android:layout_margin="10.0dp"
-	    android:textColor="#ffffff"
-	    android:background="#000000"
-	    android:layout_gravity="center_horizontal"/>
-	
-	
-	<Button 
-	    android:id="@+id/btn_search_name"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:gravity="center"
-	    android:text="Search"
-	    android:layout_gravity="center_horizontal"/>
-    
+        android:layout_margin="10.0dp" />
+
+    <Button
+        android:id="@+id/btn_search_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="Search" />
+
     <ListView
         android:id="@+id/search_result_list"
         android:layout_width="match_parent"

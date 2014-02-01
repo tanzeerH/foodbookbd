@@ -18,8 +18,7 @@
         android:id="@+id/et_get_reviewer_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Your Name" 
-        android:textColor="#ffffff"/>
+        android:hint="Your Name" />
 
     <EditText
         android:layout_weight="1"
@@ -27,7 +26,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Place your review here..." 
-        android:textColor="#ffffff"
         android:gravity="start"/>
     
     <Button 

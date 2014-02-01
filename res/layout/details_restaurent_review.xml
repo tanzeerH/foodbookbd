@@ -5,18 +5,19 @@
     android:orientation="vertical" >
 
     <ListView
-        android:layout_weight="1"
+        android:layout_weight="7"
         android:id="@+id/review_list"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="0dip"
         android:divider="#000000"
         android:dividerHeight="1.0dp" >
     </ListView>
 
     <Button
         android:id="@+id/btn_add_new_review"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dip"
         android:text="Add New Review" />
 
 </LinearLayout>

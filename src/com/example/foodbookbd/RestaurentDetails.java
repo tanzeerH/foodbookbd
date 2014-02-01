@@ -19,7 +19,7 @@ public class RestaurentDetails extends SherlockActivity implements
 	RestaurentInfo thisRestaurent;
 	long id;
 	String Name,Address;
-	float Latitude,Longitude,Rank;
+	Double Latitude,Longitude,Rank;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -29,9 +29,9 @@ public class RestaurentDetails extends SherlockActivity implements
 		id=(Long) intent.getSerializableExtra(DBHelperRestaurent.Id);
 		Name=(String) intent.getSerializableExtra(DBHelperRestaurent.Name);
 		Address=(String) intent.getSerializableExtra(DBHelperRestaurent.Address);
-		Latitude=(Float) intent.getSerializableExtra(DBHelperRestaurent.Latitude);
-		Longitude=(Float) intent.getSerializableExtra(DBHelperRestaurent.Longitude);
-		Rank=(Float) intent.getSerializableExtra(DBHelperRestaurent.Rank);
+		Latitude=(Double) intent.getSerializableExtra(DBHelperRestaurent.Latitude);
+		Longitude=(Double) intent.getSerializableExtra(DBHelperRestaurent.Longitude);
+		Rank=(Double) intent.getSerializableExtra(DBHelperRestaurent.Rank);
 		thisRestaurent=new RestaurentInfo(id, Name, Address, Longitude, Latitude, Rank);
 		
 		
@@ -40,7 +40,7 @@ public class RestaurentDetails extends SherlockActivity implements
 		tvAddress=(TextView)findViewById(R.id.address_clv);
 		tvAddress.setText(thisRestaurent.Address);
 		ratebar=(RatingBar)findViewById(R.id.rating_clv);
-		ratebar.setRating(thisRestaurent.rank);
+		ratebar.setRating((float) thisRestaurent.rank);
 		
 		
 		addToFavourite=(Button) findViewById(R.id.add_to_favourite);
